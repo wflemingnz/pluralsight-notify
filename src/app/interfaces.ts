@@ -1,6 +1,6 @@
-export interface EventReponse {
+export interface EventResponse {
   event: EmergencyEvent;
-  links: LinkStyle;
+  links: Links;
 }
 
 export interface EmergencyEvent {
@@ -24,4 +24,16 @@ export interface Address {
   city: string;
   state: string;
   zip: string;
+}
+
+export interface Acknowledgement {
+  timestamp: Date;
+  user: string;
+  note: string;
+}
+
+export interface Links {
+  self: string;
+  next: string;
+  acknowledgements: string;
 }

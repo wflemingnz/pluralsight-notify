@@ -1,9 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title
+      >{{event?.dialed}} Call @ {{event?.created | date: 'short'}}</ion-title
+    >
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <h1>Call Details</h1>
+  <ion-grid>
+    <ion-row>
+      <app-details-item
+        label="Caller First Name"
+        [value]="event?.caller.firstName"
+      ></app-details-item>
+      <app-details-item
+        label="Caller Last Name"
+        [value]="event?.caller.lastName"
+      ></app-details-item>
+      <app-details-item
+        label="Caller Phone"
+        [value]="event?.caller.phone"
+      ></app-details-item>
+      <app-details-item
+        label="Address 1"
+        [value]="event?.caller.address.street1"
+      ></app-details-item>
+      <app-details-item
+        *ngIf="event?.caller.address.street2"
+        label="Address 2"
+        [value]="event?.caller.address.street2"
+      ></app-details-item>
+      <app-details-item
+        label="City/Town"
+        [value]="event?.caller.address.city"
+      ></app-details-item>
+      <app-details-item
+        label="Postal Code"
+        [value]="event?.caller.address.zip"
+      ></app-details-item>
+    </ion-row>
+  </ion-grid>
 </ion-content>

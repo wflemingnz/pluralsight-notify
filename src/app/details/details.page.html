@@ -6,6 +6,9 @@
     <ion-title
       >{{event?.dialed}} Call @ {{event?.created | date: 'short'}}</ion-title
     >
+    <ion-buttons slot="end">
+      <app-offline-indicator></app-offline-indicator>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

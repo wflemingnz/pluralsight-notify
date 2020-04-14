@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "appData": {
-    "updateMessage": "Added ios splash screens"
+    "updateMessage": "Added pull to refresh"
   },
   "assetGroups": [
     {

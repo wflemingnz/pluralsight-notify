@@ -41,4 +41,21 @@ export class HomePage implements OnInit, OnDestroy {
   details(response: EventResponse) {
     this.navController.navigateForward(`/details/${response.event.id}`);
   }
+
+  async doRefresh(event) {
+    try {
+      const maxEvent = this.events.reduce((prev, current) =>
+        prev.event.id > current.event.id ? prev : current
+      );
+      const nextEventId = +maxEvent.event.id + 1;
+      const response = await this.eventsService
+        .getById(nextEventId)
+        .toPromise();
+      this.events.push(response);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      event.target.complete();
+    }
+  }
 }

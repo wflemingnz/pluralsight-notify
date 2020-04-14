@@ -3,6 +3,7 @@ import { EventResponse } from '../interfaces';
 import { Subscription } from 'rxjs';
 import { EventsService } from '../events.service';
 import { NavController } from '@ionic/angular';
+import { UpdaterService } from '../shared/updater.service';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +16,13 @@ export class HomePage implements OnInit, OnDestroy {
 
   constructor(
     private eventsService: EventsService,
-    private navController: NavController
+    private navController: NavController,
+    private updaterService: UpdaterService
   ) {}
 
   ngOnInit() {
+    this.updaterService.initialise();
+
     this.subscripton = this.eventsService
       .getAll()
       .subscribe((event) => this.events.push(event));

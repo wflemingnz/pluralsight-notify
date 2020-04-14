@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { OfflineIndicatorComponent } from './offline-indicator/offline-indicator.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -18,7 +18,8 @@ import { OfflineIndicatorComponent } from './offline-indicator/offline-indicator
         component: HomePage,
       },
     ]),
+    SharedModule,
   ],
-  declarations: [HomePage, OfflineIndicatorComponent],
+  declarations: [HomePage],
 })
 export class HomePageModule {}
